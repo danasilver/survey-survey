@@ -1,0 +1,34 @@
+#!usr/bin/env python2
+
+from peewee import *
+import pytz
+
+from models import Person
+
+import random
+from datetime import datetime, timedelta
+
+# Wednesday 2/18/2015 00:00 EST (05:00 UTC)
+start_time = datetime(2015, 02, 18, 0, 5, 0, tzinfo=pytz.utc)
+
+# 1 day
+max_seconds = 24 * 60 * 60
+
+with open('emails.txt', 'r') as f:
+    emails = f.read().split(';\n')
+
+with open('questions.txt', 'r') as f:
+    questions = f.read().split('\n')
+
+for email in email:
+    # Generate a random number of seconds after the start time to send the email
+    seconds = random.randint(0, max_seconds)
+
+    # Add the seconds to the start time to get the send time
+    send_time = start_time + timedelta(seconds=seconds)
+
+    # Randomly choose a question from our list to email
+    question = questions[random.randint(0, len(questions))]
+
+    # Create a person with email and send time
+    Person.create(email=email, send_time=send_time, question=question)
