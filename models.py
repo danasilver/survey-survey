@@ -12,7 +12,7 @@ if 'DATABASE_URL' in os.environ:
         url.path[1:],
         user=url.username,
         password=url.password,
-        host=url.host,
+        host=url.hostname,
         port=url.port
     )
 
