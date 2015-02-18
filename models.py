@@ -1,12 +1,10 @@
-#heroku config:set HEROKU=1
-
 import os
 import urlparse
 from peewee import *
 from peewee import create_model_tables
 
 
-if 'HEROKU' in os.environ:
+if 'DATABASE_URL' in os.environ:
     urlparse.uses_netloc.append('postgres')
     url = urlparse.urlparse(os.environ['DATABASE_URL'])
 
