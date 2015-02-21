@@ -2,3 +2,4 @@
 *.py[co]
 
 emails.txt
+names_to_scrape.txt
