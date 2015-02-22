@@ -7,13 +7,18 @@ import random
 from datetime import datetime, timedelta
 
 # Monday 2/23/2015 00:00 EST (05:00 UTC)
-start_time = datetime(2015, 02, 23, 0, 5, 0, tzinfo=pytz.utc)
+# start_time = datetime(2015, 02, 23, 0, 5, 0, tzinfo=pytz.utc)
+start_time = datetime(2015, 02, 22, 0, 22, 0, tzinfo=pytz.utc)
 
 # 1 day
-max_seconds = 24 * 60 * 60
+# max_seconds = 24 * 60 * 60
+max_seconds = 10
 
-with open('emails.txt', 'r') as f:
-    emails = f.read().split(';\n')
+
+# with open('emails.txt', 'r') as f:
+#     emails = f.read().split(';\n')
+
+emails = ['dana.r.silver.ug@dartmouth.edu', 'dsilver@middlebury.edu']
 
 with open('questions.txt', 'r') as f:
     questions = f.read().split('\n')

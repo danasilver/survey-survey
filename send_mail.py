@@ -10,7 +10,7 @@ import os
 def send_mail():
     now = datetime.now().replace(microsecond=0)
 
-    if now < start_time + timedelta(seconds=max_seconds):
+    if now < start_time + timedelta(seconds=(max_seconds + 60)):
         threading.Timer(1.0, send_mail).start()
 
     people = Person.select().where(Person.send_time=now)
