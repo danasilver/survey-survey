@@ -38,6 +38,8 @@ def parse_email(data):
 
     db.connect()
 
+    print data
+
     person = Person.get(Person.email==from_email)
     person.reply_time = parsedate(headers.get('date'))
     person.response = data.get('body-plain')
