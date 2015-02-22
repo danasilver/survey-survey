@@ -29,9 +29,8 @@ def index():
 
 @app.route('/incoming', methods=['POST'])
 def incoming_mail():
-    print request.data
-    print q
-    q.enqueue(parse_email, request.data)
+    print request.form
+    q.enqueue(parse_email, request.form)
     return 'OK', 200
 
 def parse_email(data):
