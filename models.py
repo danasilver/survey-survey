@@ -30,13 +30,14 @@ class Person(BaseModel):
     send_time = DateTimeField()
 
     # The actual send time
-    sent_time_actual = DateTimeField()
+    send_time_actual = DateTimeField(null=True)
 
     # The reply time extracted from the reply email
-    reply_time = DateTimeField()
+    reply_time = DateTimeField(null=True)
 
     question = TextField()
 
-    response = TextField()
+    response = TextField(null=True)
 
-create_model_tables([Person], fail_silently=True)
+if __name__ == '__main__':
+    create_model_tables([Person], fail_silently=True)

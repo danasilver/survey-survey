@@ -37,7 +37,11 @@ def parse_email(data):
     from_email = re.search(r'[\w\.-]+@[\w\.-]+', data.get('from')).group(0)
     headers = json.loads(data.get('message-headers'))
 
-    person = Person.select().where(email=from_email)
+    db.connect()
+
+    person = Person.get(Person.email==from_email)
     person.reply_time = parsedate(headers.get('date'))
     person.response = data.get('body-plain')
     person.save()
+
+    db.close()
