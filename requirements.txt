@@ -8,8 +8,10 @@ gunicorn==19.2.1
 itsdangerous==0.24
 peewee==2.4.7
 psycopg2==2.6
+python-dateutil==2.4.0
 pytz==2014.10
 redis==2.10.3
 requests==2.5.1
 rq==0.5.0
+six==1.9.0
 wsgiref==0.1.2
