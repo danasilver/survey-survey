@@ -23,7 +23,7 @@ emails = ['dana.r.silver.ug@dartmouth.edu', 'dsilver@middlebury.edu']
 with open('questions.txt', 'r') as f:
     questions = f.read().split('\n')
 
-for email in email:
+for email in emails:
     # Generate a random number of seconds after the start time to send the email
     seconds = random.randint(0, max_seconds)
 
