@@ -5,10 +5,8 @@ from models import Person, db
 import re
 import json
 
-DEBUG = True
-SECRET_KEY = 'keep this a secret'
-
 app = Flask(__name__)
+app.debug = True
 
 use_connection()
 q = Queue()
@@ -27,12 +25,6 @@ def after_request(response):
 def index():
     return render_template('index.html')
 
-@app.route('/incoming', methods=['POST'])
-def incoming_mail():
-    print request.form
-    q.enqueue(parse_email, request.form)
-    return 'OK', 200
-
 def parse_email(data):
     from_email = re.search(r'[\w\.-]+@[\w\.-]+', data.get('from')).group(0)
     headers = json.loads(data.get('message-headers'))
@@ -47,3 +39,9 @@ def parse_email(data):
     person.save()
 
     db.close()
+
+@app.route('/incoming', methods=['POST'])
+def incoming_mail():
+    print request.form
+    q.enqueue(parse_email, request.form)
+    return 'OK', 200
