@@ -26,16 +26,14 @@ def index():
 
 @job
 def parse_email(data):
-    from_email = re.search(r'[\w\.-]+@[\w\.-]+', data.get('from')).group(0)
-    headers = json.loads(data.get('message-headers'))
+    from_email = re.search(r'[\w\.-]+@[\w\.-]+', data['from']).group(0)
+    headers = {i[0]: i[1] for i in json.loads(data['message-headers'])}
 
     db.connect()
 
-    print data
-
     person = Person.get(Person.email==from_email)
-    person.reply_time = parsedate(headers.get('date'))
-    person.response = data.get('body-plain')
+    person.reply_time = parsedate(headers['Date'])
+    person.response = data['stripped-text'] or data['body-plain']
     person.save()
 
     db.close()
