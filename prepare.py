@@ -1,14 +1,13 @@
 #!usr/bin/env python2
 
 from peewee import *
-import pytz
 from models import Person
 import random
 from datetime import datetime, timedelta
 
 # Monday 2/23/2015 00:00 EST (05:00 UTC)
-# start_time = datetime(2015, 02, 23, 0, 5, 0, tzinfo=pytz.utc)
-start_time = datetime(2015, 02, 22, 0, 22, 10, tzinfo=pytz.utc)
+# start_time = datetime(2015, 02, 23, 0, 5, 0)
+start_time = datetime(2015, 02, 22, 0, 22, 10)
 
 # 1 day
 # max_seconds = 24 * 60 * 60
