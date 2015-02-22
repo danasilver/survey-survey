@@ -1,7 +1,7 @@
 #!usr/bin/env python2
 
 from peewee import *
-from models import Person
+from models import Person, db
 import random
 from datetime import datetime, timedelta
 
@@ -29,4 +29,7 @@ if __name__ == '__main__':
         question = questions[random.randint(0, len(questions) - 1)]
 
         # Create a person with email and send time
-        Person.create(email=email, send_time=send_time, question=question)
+        try:
+            Person.create(email=email, send_time=send_time, question=question)
+        except IntegrityError:
+            db.rollback()
