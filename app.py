@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, g
 from rq import Queue, use_connection
 from dateutil.parser import parse as parsedate
-from models import Person
-from config import db
+from models import Person, db
 import re
 import json
 
