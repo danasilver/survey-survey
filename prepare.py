@@ -31,7 +31,7 @@ if __name__ == '__main__':
         send_time = start_time + timedelta(seconds=seconds)
 
         # Randomly choose a question from our list to email
-        question = questions[random.randint(0, len(questions))]
+        question = questions[random.randint(0, len(questions) - 1)]
 
         # Create a person with email and send time
         Person.create(email=email, send_time=send_time, question=question)
