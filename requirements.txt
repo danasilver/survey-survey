@@ -9,6 +9,7 @@ beautifulsoup4==4.3.2
 click==3.3
 gunicorn==19.2.1
 itsdangerous==0.24
+newrelic==2.44.0.36
 peewee==2.4.7
 psycopg2==2.6
 python-dateutil==2.4.0
