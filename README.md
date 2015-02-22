@@ -1,6 +1,26 @@
 # GOVT 10 Final Project
 ## Tools for conducting a survey about surveys
 
+### Commands
+
+Prefix with `heroku run` to run on server.
+
+#### Create the db
+
+```
+python models.py
+```
+
+#### Prepare the database to send
+
+```
+python prepare.py
+```
+
+### Sending
+
+Set up task on Heroku to run `python send_mail.py` at 2015-02-23 00:05:00 +0000.
+
 ### Survey Process
 
 1. Randomly assign a number between 0 and 172,800 (2 days in seconds) to each
