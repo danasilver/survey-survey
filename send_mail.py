@@ -13,7 +13,7 @@ def send_mail():
     if now < start_time + timedelta(seconds=(max_seconds + 60)):
         threading.Timer(1.0, send_mail).start()
 
-    people = Person.select().where(Person.send_time=now)
+    people = Person.select().where(Person.send_time==now)
     for person in people:
         question = person.question
         requests.post(
