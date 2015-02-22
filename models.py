@@ -37,4 +37,6 @@ class Person(BaseModel):
 
     question = TextField()
 
+    response = TextField()
+
 create_model_tables([Person], fail_silently=True)
