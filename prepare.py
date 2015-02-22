@@ -6,19 +6,14 @@ import random
 from datetime import datetime, timedelta
 
 # Monday 2/23/2015 00:00 EST (05:00 UTC)
-# start_time = datetime(2015, 02, 23, 5, 0, 0)
-start_time = datetime(2015, 02, 22, 21, 45, 0)
+start_time = datetime(2015, 02, 23, 5, 0, 0)
 
 # 1 day
-# max_seconds = 24 * 60 * 60
-max_seconds = 60
-
+max_seconds = 24 * 60 * 60
 
 if __name__ == '__main__':
-    # with open('emails.txt', 'r') as f:
-    #     emails = f.read().split(';\n')
-
-    emails = ['dana.r.silver.ug@dartmouth.edu', 'dsilver@middlebury.edu']
+    with open('emails.txt', 'r') as f:
+        emails = f.read().split('\n')
 
     with open('questions.txt', 'r') as f:
         questions = f.read().split('\n')
