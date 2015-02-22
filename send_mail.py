@@ -19,11 +19,10 @@ def send_mail():
         requests.post(
             'https://api.mailgun.net/v2/govt10.danasilver.org/messages',
             auth=('api', os.environ.get('MAILGUN_API_KEY')),
-            data={'from': 'Dana Silver <dana.r.silver.ug@dartmouth.edu>',
+            data={'from': 'Dana R. Silver <govt10@govt10.danasilver.org>',
                   'to': [person.email],
                   'subject': 'One Question GOVT10 Survey',
-                  'text': '''Hi! Help us out by answering our survey.
-                  Just reply to this email with your answer.\n\n%s''' %
+                  'text': '''Hi! Help us out by answering our survey. Just reply to this email with your answer.\n\n%s\n\nThanks!''' %
                   (person.question,)})
 
         person.send_time_actual = datetime.now().replace(microsecond=0)
