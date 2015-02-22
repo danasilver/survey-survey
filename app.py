@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, g
 from flask.ext.rqify import init_rqify
 from flask.ext.rq import job
 from dateutil.parser import parse as parsedate
+from peewee import fn
 from models import Person, db
 import re
 import json
@@ -26,12 +27,12 @@ def index():
 
 @job
 def parse_email(data):
-    from_email = re.search(r'[\w\.-]+@[\w\.-]+', data['from']).group(0)
+    from_email = re.search(r'[\w\.-]+@[\w\.-]+', data['from']).group(0).lower()
     headers = {i[0]: i[1] for i in json.loads(data['message-headers'])}
 
     db.connect()
 
-    person = Person.get(Person.email==from_email)
+    person = Person.get(fn.Lower(Person.email)==from_email)
     person.reply_time = parsedate(headers['Date'])
     person.response = data['stripped-text'] or data['body-plain']
     person.save()
