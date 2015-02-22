@@ -19,7 +19,7 @@ python prepare.py
 
 ### Sending
 
-Set up task on Heroku to run `python send_mail.py` at 2015-02-23 00:05:00 +0000.
+Set up task on Heroku to run `python send_mail.py` at 2015-02-23 05:00:00 +0000.
 
 ### Survey Process
 
