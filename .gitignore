@@ -2,3 +2,5 @@
 *.py[co]
 
 names_to_scrape.txt
+*.dump
+*.csv
