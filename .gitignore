@@ -1,6 +1,8 @@
 .DS_Store
 *.py[co]
 
+newrelic.ini
+emails.txt
 names_to_scrape.txt
 *.dump
 *.csv
